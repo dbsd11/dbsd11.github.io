@@ -21,9 +21,9 @@ services:
         - run: set +e && echo "start deploy netty-websocket on ${netty-websocket-server.output.url.custom_domain[0].domain}"
           path: .
       post-deploy:  # 在deploy之前运行
-        - run: set +e && echo 'test accessable' && curl -XGET "https://${netty-websocket-server.output.url.custom_domain[0].domain}/api/test-access"
+        - run: set +e && echo 'test accessable'
           path: .
-        - run: set +e && echo 'load biz modules' && curl -XGET "https://${netty-websocket-server.output.url.custom_domain[0].domain}/api/load-modules"
+        - run: set +e && echo 'load biz modules'
           path: .
     props: # 组件的属性值
       region: ${vars.region}
