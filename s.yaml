@@ -25,7 +25,7 @@ services:
           path: .
         - run: set +e && echo 'load biz modules'
           path: .
-        - component: fc invoke --region cn-beijing --service-name netty-websocket-server --function-name netty-websocket-api httpTrigger
+       # - component: fc invoke --region cn-beijing --service-name netty-websocket-server --function-name netty-websocket-api httpTrigger
     props: # 组件的属性值
       region: ${vars.region}
       service: ${vars.service}
