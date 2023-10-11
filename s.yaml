@@ -12,7 +12,7 @@ vars:
     name: "test-bison"
     description: 'bison main site'
     nasConfig: auto
-  env: dev
+  service_env: {{ env }}
 
 services:
   netty-websocket-server: # 业务名称/模块名称
@@ -55,7 +55,7 @@ services:
         - domainName: auto
           protocol: HTTP
           routeConfigs:
-            - path: /${vars.env}/api/*
+            - path: /${vars.service_env}/api/*
               serviceName: test-bison
               functionName: netty-websocket-api
               qualifier: LATEST
@@ -67,7 +67,7 @@ services:
                 #   - match: ^/old/[a-z]+/
                 #     replacement: /xxxx
                 wildcardRules:
-                  - match: /${vars.env}/api/*
+                  - match: /${vars.service_env}/api/*
                     replacement: /$1
       triggers:
         - name: httpTrigger
