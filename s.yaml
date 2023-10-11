@@ -42,7 +42,7 @@ services:
           image: "registry.cn-beijing.aliyuncs.com/dbsnolimit/netty-websocket:latest"
         cpu: 0.5
         memorySize: 512 # 单位MB
-        storage: 512 # 单位MB
+        diskSize: 512 # 单位MB
         instanceConcurrency: 200
         prewarmedInstance:
           enabled: true # 启用预留实例  
