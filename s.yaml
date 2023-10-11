@@ -14,6 +14,7 @@ vars:
     nasConfig: auto
   service_env: ${env(service_env)}
   service_domain: ${env(service_domain)}
+  ssl_enabled: ${env(ssl_enabled)}
 
 services:
   netty-websocket-server: # 业务名称/模块名称
@@ -41,6 +42,8 @@ services:
         caPort: 443
         customContainerConfig: 
           image: "registry.cn-beijing.aliyuncs.com/dbsnolimit/netty-websocket:latest"
+        environmentVariables:
+          ssl_enabled: ${vars.ssl_enabled}
         cpu: 0.5
         memorySize: 512 # 单位MB
         diskSize: 512 # 单位MB
