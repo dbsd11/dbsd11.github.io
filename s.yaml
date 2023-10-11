@@ -38,7 +38,7 @@ services:
         timeout: 7200
         caPort: 443
         customContainerConfig: 
-          image: "registry.cn-beijing.aliyuncs.com/dbsnolimit/netty-websocket:1.0.1-SNAPSHOT"
+          image: "registry.cn-beijing.aliyuncs.com/dbsnolimit/netty-websocket:latest"
         cpu: 0.5
         memorySize: 512 # 单位MB
         instanceConcurrency: 200
