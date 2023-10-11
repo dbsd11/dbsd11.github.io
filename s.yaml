@@ -55,7 +55,7 @@ services:
             - path: /${vars.env}/api/*
               target: 'netty-websocket-api'
           pathMapping:
-            /${vars.env}/api: /
+            "/" : "/${vars.env}/api/netty-websocket-api"
       triggers:
         - name: httpTrigger
           type: http
