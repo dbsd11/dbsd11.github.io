@@ -55,16 +55,15 @@ services:
               target: 'netty-websocket-api'
           pathMapping:
             '/${vars.env}/api': /
-
-      # triggers:
-      #   - name: httpTrigger
-      #     type: http
-      #     config:
-      #       authType: anonymous
-      #       methods:
-      #         - GET
-      #         - POST
-      #         - PUT
-      #         - DELETE
-      #         - HEAD
-      #         - OPTIONS
+      triggers:
+        - name: httpTrigger
+          type: http
+          config:
+            authType: anonymous
+            methods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - HEAD
+              - OPTIONS
