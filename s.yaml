@@ -54,9 +54,11 @@ services:
       customDomains:
         - domainName: auto
           protocol: HTTP
+          wafConfig:
+            enableWAF: true
           routeConfigs:
             - path: /${vars.env}/api/*
-              serviceName: ${vars.service}
+              serviceName: test-bison
               functionName: netty-websocket-api
               qualifier: LATEST
               rewriteConfig:
