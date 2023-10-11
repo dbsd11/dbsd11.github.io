@@ -57,7 +57,7 @@ services:
           logstore: 'netty-websocket-api'
       customDomains:
         - domainName: ${vars.service_domain}
-          protocol: HTTP
+          protocol: HTTP,HTTPS
           routeConfigs:
             - path: /${vars.service_env}/api/*
               serviceName: test-bison
@@ -73,15 +73,3 @@ services:
                 wildcardRules:
                   - match: /${vars.service_env}/api/*
                     replacement: /$1
-      triggers:
-        - name: httpTrigger
-          type: http
-          config:
-            authType: anonymous
-            methods:
-              - GET
-              - POST
-              - PUT
-              - DELETE
-              - HEAD
-              - OPTIONS
