@@ -48,6 +48,9 @@ services:
           enabled: true # 启用预留实例  
           minimumInstances: 0
           maximumInstances: 1
+        logConfig:
+          project: 'serverless-log'
+          logstore: 'netty-websocket-api'
       customDomains:
         - domainName: auto
           protocol: HTTP
