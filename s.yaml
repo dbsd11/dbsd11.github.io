@@ -40,6 +40,13 @@ services:
         caPort: 443
         customContainerConfig: 
           image: "registry.cn-beijing.aliyuncs.com/dbsnolimit/netty-websocket:1.0.1-SNAPSHOT"
+        cpu: 1
+        memorySize: 1024 # 单位MB
+        instanceConcurrency: 500  
+        prewarmedInstance:  
+          enabled: true # 启用预留实例  
+          minimumInstances: 0
+          maximumInstances: 1
       triggers:
         - name: httpTrigger
           type: http
