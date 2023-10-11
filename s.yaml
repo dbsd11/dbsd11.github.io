@@ -32,6 +32,7 @@ services:
       function:
         name: "netty-websocket-api"
         description: 'netty websocket api'
+        version: 'LATEST'
         codeUri: '.'
         runtime: custom-container
         timeout: 7200
