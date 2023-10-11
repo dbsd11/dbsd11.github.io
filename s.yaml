@@ -15,6 +15,7 @@ vars:
   service_env: ${env(service_env)}
   service_domain: ${env(service_domain)}
   ssl_enabled: ${env(ssl_enabled)}
+  cert_id: ${env(cert_id)}
 
 services:
   netty-websocket-server: # 业务名称/模块名称
@@ -58,6 +59,7 @@ services:
       customDomains:
         - domainName: ${vars.service_domain}
           protocol: HTTP,HTTPS
+          certId: ${vars.cert_id}
           routeConfigs:
             - path: /${vars.service_env}/api/*
               serviceName: test-bison
