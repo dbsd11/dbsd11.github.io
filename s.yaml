@@ -12,7 +12,7 @@ vars:
     name: "test-bison"
     description: 'bison main site'
     nasConfig: auto
-  service_env: {{ env }}
+  service_env: "{{ env }}"
 
 services:
   netty-websocket-server: # 业务名称/模块名称
