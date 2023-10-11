@@ -12,6 +12,7 @@ vars:
     name: "test-bison"
     description: 'bison main site'
     nasConfig: auto
+  service_env: ${env(service_env)}
 
 services:
   netty-websocket-server: # 业务名称/模块名称
@@ -41,11 +42,33 @@ services:
           image: "registry.cn-beijing.aliyuncs.com/dbsnolimit/netty-websocket:latest"
         cpu: 0.5
         memorySize: 512 # 单位MB
+        diskSize: 512 # 单位MB
         instanceConcurrency: 200
         prewarmedInstance:
           enabled: true # 启用预留实例  
           minimumInstances: 0
           maximumInstances: 1
+        logConfig:
+          project: 'serverless-log'
+          logstore: 'netty-websocket-api'
+      customDomains:
+        - domainName: auto
+          protocol: HTTP
+          routeConfigs:
+            - path: /${vars.service_env}/api/*
+              serviceName: test-bison
+              functionName: netty-websocket-api
+              qualifier: LATEST
+              rewriteConfig:
+                # equalRules:
+                #   - match: /equalRules
+                #     replacement: /xxxx
+                # regexRules:
+                #   - match: ^/old/[a-z]+/
+                #     replacement: /xxxx
+                wildcardRules:
+                  - match: /${vars.service_env}/api/*
+                    replacement: /$1
       triggers:
         - name: httpTrigger
           type: http
@@ -58,8 +81,3 @@ services:
               - DELETE
               - HEAD
               - OPTIONS
-      customDomains:
-        - domainName: auto
-          protocol: HTTP
-          routeConfigs:
-            - path: /*
