@@ -48,19 +48,16 @@ services:
           enabled: true # 启用预留实例  
           minimumInstances: 0
           maximumInstances: 1
-        logConfig:  
-          project: 'netty-websocket-server' # 日志项目名称  
-          logstore: 'netty-websocket-api' # 日志库名称
       customDomains:
         - domainName: auto
           protocol: HTTP
           wafConfig:
             enableWAF: true
           routeConfigs:
-            - path: /dev/api/*
-              # serviceName: test-bison
-              target: netty-websocket-api
-              # qualifier: LATEST
+            - path: /${vars.env}/api/*
+              serviceName: test-bison
+              functionName: netty-websocket-api
+              qualifier: LATEST
               rewriteConfig:
                 # equalRules:
                 #   - match: /equalRules
@@ -69,7 +66,7 @@ services:
                 #   - match: ^/old/[a-z]+/
                 #     replacement: /xxxx
                 wildcardRules:
-                  - match: /dev/api/*
+                  - match: /${vars.env}/api/*
                     replacement: /$1
       triggers:
         - name: httpTrigger
