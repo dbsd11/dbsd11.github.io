@@ -54,8 +54,6 @@ services:
       customDomains:
         - domainName: auto
           protocol: HTTP
-          wafConfig:
-            enableWAF: true
           routeConfigs:
             - path: /${vars.env}/api/*
               serviceName: test-bison
