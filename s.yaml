@@ -73,3 +73,15 @@ services:
                 wildcardRules:
                   - match: /${vars.service_env}/api/*
                     replacement: /$1
+      triggers:
+        - name: httpTrigger
+          type: http
+          config:
+            authType: anonymous
+            methods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - HEAD
+              - OPTIONS
