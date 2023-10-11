@@ -12,6 +12,7 @@ vars:
     name: "test-bison"
     description: 'bison main site'
     nasConfig: auto
+  env: dev
 
 services:
   netty-websocket-server: # 业务名称/模块名称
@@ -46,20 +47,21 @@ services:
           enabled: true # 启用预留实例  
           minimumInstances: 0
           maximumInstances: 1
-      triggers:
-        - name: httpTrigger
-          type: http
-          config:
-            authType: anonymous
-            methods:
-              - GET
-              - POST
-              - PUT
-              - DELETE
-              - HEAD
-              - OPTIONS
       customDomains:
         - domainName: auto
           protocol: HTTP
           routeConfigs:
-            - path: /*
+            - path: /${vars.env}
+              target: 'netty-websocket-api'
+      # triggers:
+      #   - name: httpTrigger
+      #     type: http
+      #     config:
+      #       authType: anonymous
+      #       methods:
+      #         - GET
+      #         - POST
+      #         - PUT
+      #         - DELETE
+      #         - HEAD
+      #         - OPTIONS
