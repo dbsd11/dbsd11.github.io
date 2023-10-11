@@ -36,8 +36,6 @@ services:
         codeUri: '.'
         runtime: custom-container
         timeout: 7200
-        memorySize: 3072
-        instanceConcurrency: 2
         caPort: 443
         customContainerConfig: 
           image: "registry.cn-beijing.aliyuncs.com/dbsnolimit/netty-websocket:1.0.1-SNAPSHOT"
