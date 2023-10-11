@@ -51,8 +51,11 @@ services:
         - domainName: auto
           protocol: HTTP
           routeConfigs:
-            - path: /${vars.env}
+            - path: /${vars.env}/api
               target: 'netty-websocket-api'
+          pathMapping:
+            '/${vars.env}/api': /
+
       # triggers:
       #   - name: httpTrigger
       #     type: http
