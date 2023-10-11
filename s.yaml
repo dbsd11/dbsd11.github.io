@@ -13,6 +13,7 @@ vars:
     description: 'bison main site'
     nasConfig: auto
   service_env: ${env(service_env)}
+  service_domain: ${env(service_domain)}
 
 services:
   netty-websocket-server: # 业务名称/模块名称
@@ -52,7 +53,7 @@ services:
           project: 'serverless-log'
           logstore: 'netty-websocket-api'
       customDomains:
-        - domainName: www.bdzz.com.cn
+        - domainName: ${vars.service_domain}
           protocol: HTTP
           routeConfigs:
             - path: /${vars.service_env}/api/*
