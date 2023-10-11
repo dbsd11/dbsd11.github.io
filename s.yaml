@@ -58,9 +58,9 @@ services:
             enableWAF: true
           routeConfigs:
             - path: /${vars.env}/api/*
-              serviceName: test-bison
-              functionName: netty-websocket-api
-              qualifier: LATEST
+              # serviceName: test-bison
+              target: netty-websocket-api
+              # qualifier: LATEST
               rewriteConfig:
                 # equalRules:
                 #   - match: /equalRules
