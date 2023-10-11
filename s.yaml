@@ -52,7 +52,7 @@ services:
           project: 'serverless-log'
           logstore: 'netty-websocket-api'
       customDomains:
-        - domainName: auto
+        - domainName: www.bdzz.com.cn
           protocol: HTTP
           routeConfigs:
             - path: /${vars.service_env}/api/*
