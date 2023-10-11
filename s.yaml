@@ -57,7 +57,7 @@ services:
           wafConfig:
             enableWAF: true
           routeConfigs:
-            - path: /${vars.env}/api/*
+            - path: /dev/api/*
               # serviceName: test-bison
               target: netty-websocket-api
               # qualifier: LATEST
@@ -69,7 +69,7 @@ services:
                 #   - match: ^/old/[a-z]+/
                 #     replacement: /xxxx
                 wildcardRules:
-                  - match: /${vars.env}/api/*
+                  - match: /dev/api/*
                     replacement: /$1
       triggers:
         - name: httpTrigger
