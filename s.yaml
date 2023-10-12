@@ -103,11 +103,10 @@ services:
         runtime: nodejs18 # 根据您的需求选择合适的运行时环境  
         handler: index.handler # 根据您的函数代码进行调整  
         codeUri: ./bison-main-site-html # 代码包的相对路径，根据您的实际情况进行调整  
-        memorySize: 128 # 根据您的需求调整内存大小  
         timeout: 60 # 根据您的需求调整超时时间  
-        caPort: 8080 # 根据您的需求调整自定义端口号
+        caPort: 443 # 根据您的需求调整自定义端口号
         cpu: 0.5
-        memorySize: 512 # 单位MB
+        memorySize: 256 # 单位MB
         diskSize: 512 # 单位MB
         instanceConcurrency: 200
         prewarmedInstance:
