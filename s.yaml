@@ -69,7 +69,7 @@ services:
         name: "bison-main-site-html"
         description: 'main site html'
         version: 'LATEST'
-        runtime: nodejs18 # 根据您的需求选择合适的运行时环境  
+        runtime: nodejs16 # 根据您的需求选择合适的运行时环境  
         handler: index.handler # 根据您的函数代码进行调整  
         codeUri: ./bison-main-site-html # 代码包的相对路径，根据您的实际情况进行调整  
         timeout: 60 # 根据您的需求调整超时时间  
