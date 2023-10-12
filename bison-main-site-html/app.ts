@@ -5,9 +5,7 @@ import { Engine3D, Scene3D, Object3D, Camera3D, View3D, ViewPanel, UIImage, Hove
 class Sample_Image {
     async run() {
         // initializa engine
-        await Engine3D.init({  
-            canvasConfig: { canvas: canvasElement }  
-        })
+        await Engine3D.init()
         // create new scene as root node
         let scene3D: Scene3D = new Scene3D()
         scene3D.addComponent(AtmosphericComponent)
