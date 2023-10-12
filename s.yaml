@@ -74,13 +74,13 @@ services:
         codeUri: ./bison-main-site-html # 代码包的相对路径，根据您的实际情况进行调整  
         timeout: 60 # 根据您的需求调整超时时间  
         caPort: 443 # 根据您的需求调整自定义端口号
-        cpu: 0.5
-        memorySize: 256 # 单位MB
+        cpu: 0.1
+        memorySize: 128 # 单位MB
         diskSize: 512 # 单位MB
         instanceConcurrency: 200
         prewarmedInstance:
           enabled: true # 启用预留实例  
-          minimumInstances: 0
+          minimumInstances: 1
           maximumInstances: 1
         logConfig:
           project: 'serverless-log'
