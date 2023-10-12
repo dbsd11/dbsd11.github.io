@@ -87,3 +87,58 @@ services:
               - DELETE
               - HEAD
               - OPTIONS
+  bison-main-site-html: # 业务名称/模块名称
+    component:  fc    # 组件名称，Serverless Devs 工具本身类似于一种游戏机，不具备具体的业务能力，组件类似于游戏卡，用户通过向游戏机中插入不同的游戏卡实现不同的功能，即通过使用不同的组件实现不同的具体业务能力
+    actions:          # 自定义执行逻辑，关于actions 的使用，可以参考：https://www.serverless-devs.com/serverless-devs/yaml#行为描述
+      pre-deploy:
+        - run: npm install && sh compile.sh
+          path: bison-main-site-html
+    props: # 组件的属性值
+      region: ${vars.region}
+      service: ${vars.service}
+      function:
+        name: "bison-main-site-html"
+        description: 'main site html'
+        version: 'LATEST'
+        runtime: nodejs18 # 根据您的需求选择合适的运行时环境  
+        handler: index.handler # 根据您的函数代码进行调整  
+        codeUri: ./bison-main-site-html # 代码包的相对路径，根据您的实际情况进行调整  
+        memorySize: 128 # 根据您的需求调整内存大小  
+        timeout: 60 # 根据您的需求调整超时时间  
+        caPort: 8080 # 根据您的需求调整自定义端口号
+        cpu: 0.5
+        memorySize: 512 # 单位MB
+        diskSize: 512 # 单位MB
+        instanceConcurrency: 200
+        prewarmedInstance:
+          enabled: true # 启用预留实例  
+          minimumInstances: 0
+          maximumInstances: 1
+        logConfig:
+          project: 'serverless-log'
+          logstore: 'bison-main-site-html'
+      customDomains:
+        - domainName: ${vars.service_domain}
+          protocol: HTTP,HTTPS
+          certId: ${vars.cert_id}
+          routeConfigs:
+            - path: /${vars.service_env}/*
+              serviceName: test-bison
+              functionName: bison-main-site-html
+              qualifier: LATEST
+              rewriteConfig:
+                wildcardRules:
+                  - match: /${vars.service_env}/*
+                    replacement: /$1
+      triggers:
+        - name: httpTrigger
+          type: http
+          config:
+            authType: anonymous
+            methods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - HEAD
+              - OPTIONS
