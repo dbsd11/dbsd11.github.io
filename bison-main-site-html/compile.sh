@@ -1,1 +1,0 @@
-tsc --lib esnext -module esnext --target esnext -moduleResolution bundler app.ts --outDir static
