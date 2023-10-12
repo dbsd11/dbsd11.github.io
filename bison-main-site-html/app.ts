@@ -36,7 +36,7 @@ class Sample_Image {
         // load a BitmapTexture2D
         let bitmapTexture2D = new BitmapTexture2D()
         bitmapTexture2D.flipY = true
-        await bitmapTexture2D.load('https://cdn.orillusion.com/images/webgpu.png')
+        await bitmapTexture2D.load('https://tm-image.tianyancha.com/tm/03d4a673c3b9131adefa4ef6afa58d52.jpg')
 
         // create image node
         let imageQuad = new Object3D()
@@ -46,7 +46,7 @@ class Sample_Image {
         // set image size
         image.uiTransform.resize(50, 50)
         // set image source
-        image.sprite = makeAloneSprite('webgpu', bitmapTexture2D)
+        image.sprite = makeAloneSprite('BISON', bitmapTexture2D)
     }
 }
 
