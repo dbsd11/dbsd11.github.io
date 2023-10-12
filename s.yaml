@@ -90,7 +90,7 @@ services:
             - nginx
           args:
             - '-c'
-            - '/bison-main-site-html/nginx.conf'
+            - '/code/nginx/nginx.conf'
             - '-g'
             - 'daemon off;'
         cpu: 0.1
