@@ -138,7 +138,7 @@ class GUIPanelPOI {
             text.uiTransform.x = 110
             text.uiTransform.y = -48
             text.alignment = TextAnchor.UpperLeft
-            text.text = (this.content || {}).title
+            text.text = ''
             text.fontSize = 22
             text.color = new Color(0.9, 0.9, 0.9, 1.0)
         }
@@ -153,7 +153,7 @@ class GUIPanelPOI {
             text.uiTransform.x = 110
             text.uiTransform.y = -100
             text.alignment = TextAnchor.UpperLeft
-            text.text = (this.content || {}).body
+            text.text = ''
             text.fontSize = 18
             text.color = new Color(0.8, 0.8, 0.8, 1.0)
         }
@@ -290,7 +290,7 @@ class Sample_UIMultiPanel {
             ball.localPosition = pos
 
             //binder
-            let node = new GUIPanelBinder(ball, panelRoot, i)
+            let node = new GUIPanelBinder(ball, panelRoot, 0)
             node.panel.setContent(panelContent)
             this.nodeList.push(node)
         }
