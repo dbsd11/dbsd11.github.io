@@ -253,7 +253,7 @@ class Sample_UIMultiPanel {
         this.scene.addChild(Object3DUtil.GetSingleCube(400, 1, 400, 0.5, 0.1, 0.1))
 
         await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt')
-        await Engine3D.res.loadAtlas('static/sward.json')
+        await Engine3D.res.loadAtlas('https://cdn.orillusion.com/atlas/UI_atlas.json')
 
         this.makeUIPanelList()
     }
