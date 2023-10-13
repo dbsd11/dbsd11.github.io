@@ -202,12 +202,18 @@ class Sample_UIMultiPanel {
 
         await Engine3D.init({
             canvasConfig:{
+                alpha: true, // Whether the background is transparent, default false
+                zIndex: 0, // CSS z-index, default 0
+                backgroundImage: "", // Background image when alpha is transparent
+                devicePixelRatio: window.devicePixelRatio // Rendering DPR, default window.devicePixelRatio
+            },
+            <!-- canvasConfig:{
                 canvas: document.getElementById("canvas") as HTMLCanvasElement, // Specify the canvas element, you can customize the canvas size or layout
                 alpha: true, // Whether the background is transparent, default false
                 zIndex: 0, // CSS z-index, default 0
                 backgroundImage: "", // Background image when alpha is transparent
-                // devicePixelRatio: 1 // Rendering DPR, default window.devicePixelRatio
-            },
+                devicePixelRatio: 1 // Rendering DPR, default window.devicePixelRatio
+            }, -->
             renderLoop: () => {
                 this.renderUpdate()
             }
