@@ -49,10 +49,31 @@ services:
         memorySize: 512 # 单位MB
         diskSize: 512 # 单位MB
         instanceConcurrency: 200
-        prewarmedInstance:
-          enabled: true # 启用预留实例  
-          minimumInstances: 0
-          maximumInstances: 1
+        autoScaling:  
+          minInstances: 0  
+          maxInstances: 1  
+          targetConcurrency: 200  # instanceConcurrency * maxInstances
+          rules:  
+            - name: scale-out-cpu  
+              metricType: cpu  
+              metricThreshold: 80  
+              adjustmentType: ChangeInCapacity  
+              adjustmentValue: 1
+            - name: scale-in-cpu 
+              metricType: cpu  
+              metricThreshold: 50  
+              adjustmentType: ChangeInCapacity  
+              adjustmentValue: -1
+            - name: scale-out-memory 
+              metricType: memory  
+              metricThreshold: 80
+              adjustmentType: ChangeInCapacity  
+              adjustmentValue: 1
+            - name: scale-in-memory 
+              metricType: memory  
+              metricThreshold: 50  
+              adjustmentType: ChangeInCapacity  
+              adjustmentValue: -1
         logConfig:
           project: 'serverless-log'
           logstore: 'netty-websocket-api'
@@ -97,10 +118,21 @@ services:
         memorySize: 128 # 单位MB
         diskSize: 512 # 单位MB
         instanceConcurrency: 200
-        prewarmedInstance:
-          enabled: true # 启用预留实例  
-          minimumInstances: 1
-          maximumInstances: 1
+        autoScaling:  
+          minInstances: 0  
+          maxInstances: 1  
+          targetConcurrency: 200  # instanceConcurrency * maxInstances
+          rules:  
+            - name: scale-out-cpu  
+              metricType: cpu  
+              metricThreshold: 80  
+              adjustmentType: ChangeInCapacity  
+              adjustmentValue: 1  
+            - name: scale-in-cpu  
+              metricType: cpu  
+              metricThreshold: 50  
+              adjustmentType: ChangeInCapacity  
+              adjustmentValue: -1
         logConfig:
           project: 'serverless-log'
           logstore: 'bison-main-site-html'
