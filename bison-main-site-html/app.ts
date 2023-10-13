@@ -207,13 +207,13 @@ class Sample_UIMultiPanel {
                 backgroundImage: "", // Background image when alpha is transparent
                 devicePixelRatio: window.devicePixelRatio // Rendering DPR, default window.devicePixelRatio
             },
-            <!-- canvasConfig:{
-                canvas: document.getElementById("canvas") as HTMLCanvasElement, // Specify the canvas element, you can customize the canvas size or layout
-                alpha: true, // Whether the background is transparent, default false
-                zIndex: 0, // CSS z-index, default 0
-                backgroundImage: "", // Background image when alpha is transparent
-                devicePixelRatio: 1 // Rendering DPR, default window.devicePixelRatio
-            }, -->
+            // canvasConfig:{
+            //    canvas: document.getElementById("canvas") as HTMLCanvasElement, // Specify the canvas element, you can customize the canvas size or layout
+            //    alpha: true, // Whether the background is transparent, default false
+            //    zIndex: 0, // CSS z-index, default 0
+            //    backgroundImage: "", // Background image when alpha is transparent
+            //    devicePixelRatio: 1 // Rendering DPR, default window.devicePixelRatio
+            //},
             renderLoop: () => {
                 this.renderUpdate()
             }
@@ -223,6 +223,7 @@ class Sample_UIMultiPanel {
         let scene3D: Scene3D = new Scene3D()
         // create camera
         let cameraObj: Object3D = new Object3D()
+        cameraObj.y = 0
         let camera = cameraObj.addComponent(Camera3D)
         // adjust camera view
         camera.perspective(60, Engine3D.aspect, 1, 5000.0)
