@@ -197,12 +197,12 @@ class Sample_UIMultiPanel {
 
     async run() {
         Engine3D.setting.shadow.autoUpdate = true
-        Engine3D.setting.shadow.shadowBias = 0.0001
+        // Engine3D.setting.shadow.shadowBias = 0.0001
         Engine3D.setting.shadow.shadowBound = 200
 
         await Engine3D.init({
             canvasConfig:{
-                canvas: document.getElementById("canvas"), // Specify the canvas element, you can customize the canvas size or layout
+                canvas: document.getElementById("canvas") as HTMLCanvasElement, // Specify the canvas element, you can customize the canvas size or layout
                 alpha: true, // Whether the background is transparent, default false
                 zIndex: 0, // CSS z-index, default 0
                 backgroundImage: "", // Background image when alpha is transparent
