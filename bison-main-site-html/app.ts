@@ -85,9 +85,9 @@ class GUIPanelPOI {
         let g = Math.random() * 0.25 + 0.2
         this._originColor.setTo(r, g, b, this.alpha)
         //back
-        this._backImage = this.addImage(uiChild, ' ', 200, 120, r, g, b, this.alpha)
-        this._backImage.uiTransform.x = 100
-        this._backImage.uiTransform.y = -60
+        this._backImage = this.addImage(uiChild, ' ', 400, 200, r, g, b, this.alpha)
+        this._backImage.uiTransform.x = 0
+        this._backImage.uiTransform.y = 0
 
         uiChild.addEventListener(
             PointerEvent3D.PICK_CLICK_GUI,
@@ -121,9 +121,9 @@ class GUIPanelPOI {
         //icon
         {
             let iconNode = uiChild.addChild(new Object3D()) as Object3D
-            let icon = this.addImage(iconNode, '', 100, 100, 1, 1, 1)
-            icon.uiTransform.x = -75
-            icon.uiTransform.y = 25
+            let icon = this.addImage(iconNode, '', 30, 30, 1, 1, 1)
+            icon.uiTransform.x = -180
+            icon.uiTransform.y = 80
             this._icon = icon
             this.updateFrame()
         }
@@ -134,9 +134,9 @@ class GUIPanelPOI {
             textChild.name = 'title'
 
             let text = textChild.addComponent(UITextField)
-            text.uiTransform.resize(120, 60)
-            text.uiTransform.x = 110
-            text.uiTransform.y = -48
+            text.uiTransform.resize(300, 60)
+            text.uiTransform.x = 0
+            text.uiTransform.y = 60
             text.alignment = TextAnchor.UpperLeft
             text.text = ''
             text.fontSize = 22
@@ -149,9 +149,9 @@ class GUIPanelPOI {
             textChild.name = 'body'
 
             let text = textChild.addComponent(UITextField)
-            text.uiTransform.resize(140, 60)
-            text.uiTransform.x = 110
-            text.uiTransform.y = -100
+            text.uiTransform.resize(300, 60)
+            text.uiTransform.x = -10
+            text.uiTransform.y = 0
             text.alignment = TextAnchor.UpperLeft
             text.text = ''
             text.fontSize = 18
@@ -270,6 +270,18 @@ class Sample_UIMultiPanel {
         let panelContentList = [{
             "title": "name",
             "body": "bison",
+        }, {
+            "title": "email",
+            "body": "bitdbsd11@163.com",
+        }, {
+            "title": "company",
+            "body": "I'm working for myself",
+        }, {
+            "title": "skills",
+            "body": "Design, Coding, and Fix bug",
+        }, {
+            "title": "doing",
+            "body": "developing this bison main site",
         }]
         for (var i in panelContentList) {
             let panelContent = panelContentList[i]
